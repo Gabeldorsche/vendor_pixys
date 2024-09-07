@@ -1,5 +1,6 @@
 # PixysOS packages
 PRODUCT_PACKAGES += \
+    ThemePicker \
     GameSpace \
     TouchGestures \
     BtHelper \

@@ -122,9 +122,7 @@ $(call inherit-product-if-exists, vendor/certification/config.mk)
 include vendor/pixys/config/art.mk
 
 # Pixel Framework
-$(call inherit-product, vendor/pixel-framework/config.mk)
+#$(call inherit-product, vendor/pixel-framework/config.mk)
 
-# Microsoft
-$(call inherit-product-if-exists, vendor/microsoft/packages.mk)
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk

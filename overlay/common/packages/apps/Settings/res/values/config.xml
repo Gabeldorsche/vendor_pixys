@@ -20,4 +20,5 @@
 
     <!-- Whether to enable the app battery usage list page feature. -->
     <bool name="config_app_battery_usage_list_enabled">true</bool>
+
 </resources>
