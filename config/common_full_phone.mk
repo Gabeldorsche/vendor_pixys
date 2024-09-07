@@ -1,11 +1,5 @@
-# Inherit full common Lineage stuff
-$(call inherit-product, vendor/pixys/config/common_full.mk)
+# Inherit full common PixysOS stuff
+$(call inherit-product, vendor/pixys/config/common.mk)
 
-# Required packages
-PRODUCT_PACKAGES += \
-    LatinIME
-
-# Include Lineage LatinIME dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/pixys/overlay/dictionaries
-
+# Inherit apns
 $(call inherit-product, vendor/pixys/config/telephony.mk)

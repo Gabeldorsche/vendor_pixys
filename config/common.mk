@@ -1,5 +1,4 @@
 # Allow vendor/extra to override any property by setting it first
-$(call inherit-product-if-exists, vendor/extra/product.mk)
 $(call inherit-product, vendor/pixys/build/core/pixys_version.mk)
 
 PRODUCT_BRAND ?= PixysOS
@@ -25,9 +24,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=1
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.strictmode.disable=true
 endif
 
-PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
-    system/addon.d/50-superior.sh
-
 ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.ota.allow_downgrade=true
@@ -35,17 +31,11 @@ endif
 
 # Some permissions
 PRODUCT_COPY_FILES += \
-    vendor/pixys/config/permissions/privapp-permissions-lineagehw.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-lineagehw.xml \
-    vendor/pixys/config/permissions/org.lineageos.health.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/org.lineageos.health.xml \
     vendor/pixys/prebuilt/common/etc/adblock/init.adblock.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.adblock.rc
 
 # Power whitelist
 PRODUCT_COPY_FILES += \
     vendor/pixys/config/permissions/pixys-power-whitelist.xml:system/etc/sysconfig/pixys-power-whitelist.xml
-
-# Backup Services whitelist
-PRODUCT_COPY_FILES += \
-    vendor/pixys/config/permissions/backup.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/backup.xml
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -88,9 +78,6 @@ $(call inherit-product, vendor/pixys/config/pixys_packages.mk)
 
 # Disable vendor restrictions
 PRODUCT_RESTRICT_VENDOR_FILES := false
-
-# Dedupe VNDK libraries with identical core variants
-TARGET_VNDK_USE_CORE_VARIANT := true
 
 # Bootanimation
 $(call inherit-product, vendor/pixys/bootanimation/bootanimation.mk)

@@ -1,8 +1,5 @@
 # PixysOS packages
 PRODUCT_PACKAGES += \
-    NoCutoutOverlay \
-    AvoidAppsInCutoutOverlay \
-    SettingsIntelligenceGoogle \
     GameSpace \
     TouchGestures \
     BtHelper \
