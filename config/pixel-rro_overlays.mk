@@ -24,4 +24,7 @@ PRODUCT_PACKAGES += \
     TelecomOverlay \
     TelephonyProviderOverlay \
     TeleServiceOverlay \
-    ContactsProviderOverlay
+    ContactsProviderOverlay \
+    AvatarPickerPixelOverlay \
+    PixelConnectivityOverlay2024
+
