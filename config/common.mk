@@ -126,3 +126,6 @@ include vendor/pixys/config/art.mk
 
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
+
+# Inherit from apex config
+$(call inherit-product, vendor/pixys/config/apex.mk)
