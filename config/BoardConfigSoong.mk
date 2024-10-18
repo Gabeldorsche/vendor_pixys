@@ -68,6 +68,7 @@ SOONG_CONFIG_NAMESPACES += pixysQcomVars
 SOONG_CONFIG_pixysQcomVars += \
     legacy_hw_disk_encryption \
     should_wait_for_qsee \
+    no_fm_firmware \
     qti_vibrator_effect_lib \
     qti_vibrator_use_effect_stream \
     supports_extended_compress_format \
@@ -112,6 +113,7 @@ SOONG_CONFIG_pixysQcomVars_qti_vibrator_use_effect_stream := $(TARGET_QTI_VIBRAT
 SOONG_CONFIG_pixysGlobalVars_camera_override_format_from_reserved := $(TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED)
 SOONG_CONFIG_pixysGlobalVars_gralloc_handle_has_ubwcp_format := $(TARGET_GRALLOC_HANDLE_HAS_UBWCP_FORMAT)
 SOONG_CONFIG_pixysGlobalVars_sdmcore_has_is_display_hw_available_func := $(TARGET_SDMCORE_HAS_IS_DISPLAY_HW_AVAILABLE_FUNC)
+SOONG_CONFIG_pixysQcomVars_no_fm_firmware := $(TARGET_QCOM_NO_FM_FIRMWARE)
 
 # Set default values
 BOOTLOADER_MESSAGE_OFFSET ?= 0
@@ -161,3 +163,18 @@ ifneq ($(TARGET_USES_NQ_NFC),true)
 PRODUCT_SOONG_NAMESPACES += hardware/nxp
 endif #TARGET_USES_NQ_NFC
 
+
+# libfmjni
+ifeq ($(BOARD_HAVE_QCOM_FM),true)
+    PRODUCT_SOONG_NAMESPACES += \
+        vendor/qcom/opensource/libfmjni
+else ifeq ($(BOARD_HAVE_BCM_FM),true)
+    PRODUCT_SOONG_NAMESPACES += \
+        hardware/broadcom/fm
+else ifeq ($(BOARD_HAVE_SLSI_FM),true)
+    PRODUCT_SOONG_NAMESPACES += \
+        hardware/samsung_slsi/fm
+else ifneq ($(BOARD_HAVE_MTK_FM),true)
+    PRODUCT_SOONG_NAMESPACES += \
+        packages/apps/FMRadio/jni/fmr
+endif
