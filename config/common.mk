@@ -3,7 +3,7 @@ $(call inherit-product, vendor/pixys/build/core/pixys_version.mk)
 
 PRODUCT_BRAND ?= PixysOS
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+PRODUCT_BUILD_PROP_OVERRIDES += DateUtc=0
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
