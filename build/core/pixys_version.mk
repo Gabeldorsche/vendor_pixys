@@ -33,7 +33,7 @@ TARGET_PRODUCT_SHORT := $(subst pixysos_,,$(PIXYS_BUILD))
 # Gapps by default
 BUILD_WITH_GAPPS ?= true
 ifeq ($(BUILD_WITH_GAPPS),true)
-$(call inherit-product, vendor/gms/products/gms.mk)
+$(call inherit-product, vendor/gms/gms_full.mk)
 $(call inherit-product, vendor/pixys/config/pixel-rro_overlays.mk)
 PIXYS_EDITION := GAPPS
 else
@@ -42,7 +42,7 @@ endif
 
 PIXYS_BUILD_DATETIME := $(shell date +%s)
 PIXYS_BUILD_DATE := $(shell date -d @$(PIXYS_BUILD_DATETIME) +"%Y%m%d-%H%M%S")
-PIXYS_VERSION := PixysOS-$(PIXYS_MOD_VERSION)-$(PIXYS_EDITION)-$(PIXYS_BUILD)-$(PIXYS_BUILD_TYPE)-$(PIXYS_BUILD_DATE)
+PIXYS_VERSION := $(TARGET_PRODUCT_SHORT)-$(BUILD_ID)-$(PIXYS_BUILD_TYPE)-$(PIXYS_BUILD_DATE)
 PIXYS_FINGERPRINT := PixysOS/$(PIXYS_MOD_VERSION)/$(PIXYS_EDITION)/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(PIXYS_BUILD_DATE)
 PIXYS_DISPLAY_VERSION := $(PIXYS_MOD_VERSION)-$(PIXYS_EDITION)-$(PIXYS_BUILD)-$(PIXYS_BUILD_TYPE)-$(PIXYS_BUILD_DATE)
 
