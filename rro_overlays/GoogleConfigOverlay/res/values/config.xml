@@ -319,6 +319,16 @@
         <item>com.android.</item>
     </string-array>
 
+    <!-- Action for opening identity check settings page [CHAR LIMIT=NONE] [DO NOT TRANSLATE] -->
+    <string name="identity_check_settings_action">com.google.android.gms.personalsafety.settings.IDENTITY_CHECK_SWITCH</string>
+
+    <!-- Package for opening identity check settings page [CHAR LIMIT=NONE] [DO NOT TRANSLATE] -->
+    <string name="identity_check_settings_package_name">com.google.android.gms</string>
+
+   <!-- Whether to enable the biometric notification for dual-modality device that enrolled a
+         single biometric and experiences high FRR. -->
+    <bool name="config_biometricFrrNotificationEnabled">true</bool>
+
     <!-- Set this to true to enable the platform's auto-power-save modes like doze and
          app standby.  These are not enabled by default because they require a standard
          cloud-to-device messaging service for apps to interact correctly with the modes
