@@ -37,6 +37,23 @@ soong_config_module_type {
     properties: ["prefer"],
 }
 
+java_library {
+    name: "nfc_google_flags_lib",
+    sdk_version: "system_current",
+    min_sdk_version: "33",
+    srcs: [
+        "lib/**/*.java",
+    ],
+    static_libs: [
+        "nfc_aconfig_flags_lib",
+    ],
+    installable: false,
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.nfcservices",
+    ],
+}
+
 // Google com.google.android.adbd
 module_apex_prebuilt {
     name: "com.google.android.adbd",
@@ -322,6 +339,12 @@ module_apex_prebuilt {
     src: "com.google.android.nfcservices.apex",
     overrides: ["com.android.nfcservices"],
     prefer: true,
+    required: [
+        // Provide a default libnfc-nci.conf in /system/etc for devices that
+        // does not ship one in /product
+        "libnfc-nci.conf-default",
+        "nfc_google_flags_lib",
+    ],
     soong_config_variables: {
         module_build_from_source: {
             prefer: false,
