@@ -373,7 +373,6 @@
 
         <!-- Media Provider -->
         <item>mediaprovider/cloud_media_feature_enabled=true</item>
-        <item>mediaprovider/enable_modern_picker=true</item>
         <item>mediaprovider/allowed_cloud_providers=com.google.android.apps.photos.cloudpicker</item>
 
         <!-- Wallpaper Effects -->
