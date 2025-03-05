@@ -229,4 +229,4 @@ $(call inherit-product-if-exists, vendor/certification/config.mk)
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
 # Inherit from apex config
-$(call inherit-product, vendor/pixys/config/apex.mk)
+#$(call inherit-product, vendor/pixys/config/apex.mk)

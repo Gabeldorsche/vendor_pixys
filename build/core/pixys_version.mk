@@ -31,7 +31,7 @@ endif
 TARGET_PRODUCT_SHORT := $(subst pixysos_,,$(PIXYS_BUILD))
 
 # Gapps by default
-BUILD_WITH_GAPPS ?= true
+BUILD_WITH_GAPPS ?= false
 ifeq ($(BUILD_WITH_GAPPS),true)
 $(call inherit-product, vendor/gms/gms_full.mk)
 $(call inherit-product, vendor/pixys/config/pixel-rro_overlays.mk)
